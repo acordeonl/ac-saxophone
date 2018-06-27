@@ -1,0 +1,30 @@
+<link rel="import" href="../polymer/polymer-element.html">
+<link rel="import" href="../ac-view/ac-view.html">
+<link rel="import" href="./saxophone-keys.html">
+<dom-module id="ac-saxophone">
+    <template>
+        <style>
+        </style>
+        <saxophone-keys acLedGroup name='saxophone'>
+        </saxophone-keys>
+    </template>
+    <script>
+        class ACSaxophone extends ACView {
+            static get is() { return 'ac-saxophone'; }
+            static get properties() {return {}}
+            constructor() {
+                super();
+            }
+            ___acV_handleMIDIEvent (e) {
+                this.shadowRoot.querySelector('saxophone-keys').___acV_onMIDIEvent(e);
+            }
+            ready() {
+                super.ready() ;
+                this.___acV_setName('saxophone') ; 
+                this.___acV_setDefaultReverb(30);
+                this.___acV_setDefaultViewPitch(75) ; 
+            }
+        }
+        customElements.define('ac-saxophone', ACSaxophone);
+    </script>
+</dom-module>

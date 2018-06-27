@@ -1,0 +1,253 @@
+<link rel="import" href="../polymer/polymer-element.html">
+<link rel="import" href="../ac-view/ac-led-group.html">
+<link rel="import" href="../ac-view/view-audio.html">
+<link rel="import" href="./sax-key.html">
+<link rel="import" href="./sax-oval-key.html">
+<link rel="import" href="./sax-square-key.html">
+<link rel="import" href="./sax-half-circle-key.html">
+
+<dom-module id="saxophone-keys">
+    <template>
+        <style keys>
+            [squares]{
+                @apply --layout-center;
+                @apply --layout-horizontal;
+                @apply --layout-center-justified;
+            }
+        </style>
+        <style>
+            [playbackNote]{
+                margin-top:12px ; 
+                font-size: 26px ;
+                font-weight: 400 ; 
+                color: var(--ac-led-shadow,gray);
+            }
+            [instrumentNote]{
+                margin-top:35px ; 
+                font-size: 26px ;
+                font-weight: 400 ; 
+                color: var(--ac-led-shadow,gray);
+            }
+            [wrapper]{
+                height: 100%;
+                width: 100%;
+                @apply --layout-center;
+                @apply --layout-horizontal;
+                @apply --layout-center-justified;
+            }
+            [saxophone-wrapper]{
+                margin-top:0 ;
+                height: 80vh;
+                width: 100%;
+                @apply --layout-center;
+                @apply --layout-horizontal;
+                @apply --layout-center-justified;
+            }
+            [saxophone]{
+                margin-left:5px ;
+                @apply --layout-center;
+                @apply --layout-horizontal;
+                @apply --layout-center-justified;
+            }
+            [col]{
+                margin-top:0px;
+                height:433px ;
+                @apply --layout-center;
+                @apply --layout-vertical;
+                /* @apply --layout-center-justified; */
+            }
+            [col] *{
+                margin:5px;
+            }
+            [col3keys]{
+                @apply --layout-center;
+                @apply --layout-horizontal;
+                @apply --layout-center-justified;
+            }
+            [col4keys]{
+                @apply --layout-center;
+                @apply --layout-vertical;
+                @apply --layout-center-justified;
+            }
+            [keys3oval]{
+                @apply --layout-center;
+                @apply --layout-vertical;
+                @apply --layout-center-justified;
+                margin-left:-30px;
+                margin-bottom:20px ;
+                height:105px;
+            }
+            [keys3oval] *{
+                margin:2px; 
+            }
+            [notes]{
+                position: absolute;
+                margin-left:-30px ;
+                margin-top:-40px;
+            }
+        </style>
+        <view-audio channel='0'></view-audio>
+        <div wrapper style='margin-left:14px;'>
+            <div saxophone-wrapper>
+                <div saxophone>
+                    <div col style='margin-right:-5px;'>
+                        <div notes>
+                            <div playbackNote></div>
+                            <div instrumentNote></div>
+                        </div>
+                        <sax-key style='visibility: hidden;position: absolute;' style='margin-bottom:65px; margin-top:58px; margin-left:-8px;' is-small acLed ac-id='0' channel='0'></sax-key>
+                        <sax-key style='margin-bottom:65px; margin-top:58px; margin-left:-8px;' is-small acLed ac-id='1' channel='0'></sax-key>
+                        <div keys3oval>
+                            <sax-oval-key acLed ac-id='2' channel='0'></sax-oval-key>
+                            <sax-oval-key acLed ac-id='3' channel='0'></sax-oval-key>
+                            <sax-oval-key acLed ac-id='4' channel='0'></sax-oval-key>
+                        </div>
+                        <sax-oval-key style='margin-top:-7px; margin-right:-12px;margin-bottom:12px;' acLed ac-id='5' channel='0'></sax-oval-key>
+                        <sax-oval-key rotated style='margin-right:-5px;' acLed ac-id='6' channel='0'></sax-oval-key> 
+                        <sax-half-circle-key style='margin-top:20px; margin-bottom:2px;' acLed ac-id='7' channel='0'></sax-half-circle-key>
+                        <sax-half-circle-key style='margin:0px; margin-top:2px;' rotated acLed ac-id='8' channel='0'></sax-half-circle-key>
+                    </div>
+                    <div col>
+                        <sax-key is-small style='margin-right:20px;' acLed ac-id='9' channel='0'></sax-key>
+                        <sax-key acLed ac-id='10' channel='0'></sax-key>
+                        <sax-key is-small style='margin-left:20px;' acLed ac-id='11' channel='0'></sax-key>
+                        <sax-key acLed ac-id='12' channel='0'></sax-key>
+                        <sax-key acLed ac-id='13' channel='0'></sax-key>
+                        <div col style='margin-top: 30px;'>
+                            <sax-key acLed ac-id='14' channel='0'></sax-key>
+                            <sax-key acLed ac-id='15' channel='0'></sax-key>
+                            <sax-key acLed ac-id='16' channel='0'></sax-key>
+                        </div>
+                    </div>
+                    <div col>
+                        <div col3keys style='margin-top:160px;margin-left:-3px;margin-bottom:25px;'>
+                            <sax-oval-key style='margin-top:-50px;' acLed ac-id='17' channel='0'></sax-oval-key>
+                            <sax-oval-key style='margin-left:-3px; margin-top:-120px;' acLed ac-id='18' channel='0'></sax-oval-key>
+                            <sax-oval-key style='margin-left:-2px; margin-top:-80px;' acLed ac-id='19' channel='0'></sax-oval-key>
+                        </div>
+
+                        <div col4keys style='margin-left:-12px;'>
+                            <sax-half-circle-key style='margin-bottom:1px;' acLed ac-id='20' channel='0'></sax-half-circle-key>
+                            <div squares >
+                                <sax-square-key style='margin-right:1px; margin-top:0px; margin-bottom:0px;' acLed ac-id='21' channel='0'></sax-square-key>
+                                <sax-square-key style='margin-left:1px; margin-top:0px; margin-bottom:0px;' acLed ac-id='22' channel='0'></sax-square-key>
+                            </div>
+                            <sax-half-circle-key style='margin-top:1px;' rotated acLed ac-id='23' channel='0'></sax-half-circle-key>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+            
+        </div>
+    </template>
+    <script>
+        class SaxophoneKeys extends ACLedGroup {
+            static get is() { return 'saxophone-keys'; }
+            static get properties() {return {
+                midiNoteToGUI:{type:Array,value:[]}
+            }}
+            constructor() {
+                super();
+            }
+            ___acV_midiEventToAudioNote (channel, midiNote, origin,initiator) {
+                if (origin.startsWith('___midi_instrument')  || initiator ==='record')
+                    return midiNote ;
+                return this.___acV_midiEventToAudioNoteDefault(channel, midiNote, origin);
+            }
+            ___acV_mapMIDIEventToAcLedId (channel, midiNote, origin ,initiator) {
+                if (origin.startsWith('___midi_instrument') || initiator ==='record') {
+                    if(this.midiNoteToGUI[midiNote - this.___acV_viewPitchDiff] === undefined ) 
+                        return [] ; 
+
+                    return this.midiNoteToGUI[midiNote - this.___acV_viewPitchDiff];
+                }
+
+                if (this.midiNoteToGUI[midiNote  + this.___acV_recordingPitchDiff - this.___acV_viewPitchDiff] === undefined) 
+                    return [] ; 
+                return this.midiNoteToGUI[midiNote  + this.___acV_recordingPitchDiff - this.___acV_viewPitchDiff];
+            }
+            ___acV_mapMIDIEventToAcLedState (channel,midiNote,origin,initiator) {
+                var len ,res = []; 
+                if (origin.startsWith('___midi_instrument') || initiator ==='record') {
+                    if(this.midiNoteToGUI[midiNote - this.___acV_viewPitchDiff] === undefined ) 
+                        return [] ; 
+                    len = this.midiNoteToGUI[midiNote - this.___acV_viewPitchDiff ].length;
+                    for(let i = 0 ; i < len ; i ++ )
+                        res.push(1) ;
+                    return res ;
+                }
+
+                if (this.midiNoteToGUI[midiNote  + this.___acV_recordingPitchDiff - this.___acV_viewPitchDiff] === undefined) 
+                    return [] ; 
+                len = this.midiNoteToGUI[midiNote  + this.___acV_recordingPitchDiff - this.___acV_viewPitchDiff ].length ; 
+                for(let i = 0 ; i < len ; i ++ )
+                    res.push(1) ;
+                return res ;
+            }
+            ready() {
+                super.ready() ;
+                this.midiNoteToGUI = [] ;
+                
+                this.midiNoteToGUI[58] = [10,12,13,14,15,16,8,23]; // Bb3
+                this.midiNoteToGUI[59] = [10,12,13,14,15,16,8,21]; // B3
+
+                this.midiNoteToGUI[60] = [10,12,13,14,15,16,8]; // C4
+                this.midiNoteToGUI[61] = [10,12,13,14,15,16,8,22]; // C#4
+                this.midiNoteToGUI[62] = [10,12,13,14,15,16]; // D4
+                this.midiNoteToGUI[63] = [10,12,13,14,15,16,7]; //  Eb4
+                this.midiNoteToGUI[64] = [10,12,13,14,15]; // E4 
+                this.midiNoteToGUI[65] = [10,12,13,14]; //  F4
+                this.midiNoteToGUI[66] = [10,12,13,15]; // F#4
+                this.midiNoteToGUI[67] = [10,12,13]; // G4  
+                this.midiNoteToGUI[68] = [10,12,13,20]; // G#4 
+                this.midiNoteToGUI[69] = [10,12]; // A4
+                this.midiNoteToGUI[70] = [10,12,4]; // Bb4  
+                this.midiNoteToGUI[71] = [10]; // B4
+
+                this.midiNoteToGUI[72] = [12]; //  C5
+                this.midiNoteToGUI[73] = [0]; //  C#5
+                this.midiNoteToGUI[74] = [1,10,12,13,14,15,16]; // D5
+                this.midiNoteToGUI[75] = [1,10,12,13,14,15,16,7]; // Eb5
+                this.midiNoteToGUI[76] = [1,10,12,13,14,15]; // E5
+                this.midiNoteToGUI[77] = [1,10,12,13,14]; //  F5
+                this.midiNoteToGUI[78] = [1,10,12,13,15]; // F#5
+                this.midiNoteToGUI[79] = [1,10,12,13]; //  G5
+                this.midiNoteToGUI[80] = [1,10,12,13,20]; // G#5
+                this.midiNoteToGUI[81] = [1,10,12]; // A5
+                this.midiNoteToGUI[82] = [1,10,12,4]; // Bb5
+                this.midiNoteToGUI[83] = [1,10]; // B
+
+                this.midiNoteToGUI[84] = [1,12]; // C6
+                this.midiNoteToGUI[85] = [1]; // C#6
+                this.midiNoteToGUI[86] = [1,19]; // D6
+                this.midiNoteToGUI[87] = [1,18,19]; // Eb6
+                this.midiNoteToGUI[88] = [1,2,18,19]; // E6
+                this.midiNoteToGUI[89] = [1,2,17,18,19]; //  F6
+                this.midiNoteToGUI[90] = [1,9,12,14]; // F#6
+                this.midiNoteToGUI[91] = [1,10,13,16]; // G6
+                this.midiNoteToGUI[92] = [1,12,15]; // G#6
+                this.midiNoteToGUI[93] = [1,12,13]; // A6
+                this.midiNoteToGUI[94] = [1,3,13]; // Bb6
+                this.midiNoteToGUI[95] = [1,3,4,19]; // B6
+
+                this.midiNoteToGUI[96] = [1,18,19]; // C7
+                this.midiNoteToGUI[97] = [1,2,18,19]; // C#7
+                this.midiNoteToGUI[98] = [1,10,18]; // D7
+                this.midiNoteToGUI[99] = [1,9,12,14]; // Eb7
+                this.midiNoteToGUI[100] = [1,12,14,15]; // E7 
+                this.midiNoteToGUI[101] = [1,10,13,14,16]; // F7
+                this.midiNoteToGUI[102] = [1,10,13,14,16,18,19]; // F#7
+                this.midiNoteToGUI[103] = [1,12,14,15]; // G7
+                this.midiNoteToGUI[104] = [1,12,15]; // G#7
+                this.midiNoteToGUI[105] = [1,12,13,19,16]; // A7
+                this.midiNoteToGUI[106] = [1,4]; // Bb7
+                this.midiNoteToGUI[107] = [1,2,3,12,13,15,16,17,18,19]; // B7
+
+                this.midiNoteToGUI[108] = [1,12,13,15,16,18,19]; // C8
+
+            }
+        }
+        customElements.define('saxophone-keys', SaxophoneKeys);
+    </script>
+</dom-module>
