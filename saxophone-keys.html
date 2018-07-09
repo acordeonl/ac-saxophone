@@ -82,13 +82,19 @@
             }
             [notes]{
                 position: absolute;
-                margin-left:-30px ;
+                margin-left:-50px ;
                 margin-top:-40px;
+            }
+            .rotated{
+                transform: scale(-1,1) ; 
+            }
+            .rotated [notes]{
+                transform: scale(-1,1) ; 
             }
         </style>
         <view-audio channel='0'></view-audio>
         <div wrapper style='margin-left:14px;'>
-            <div saxophone-wrapper>
+            <div class$="{{_computeRotation(___acV_rotation)}}" saxophone-wrapper>
                 <div saxophone>
                     <div col style='margin-right:-5px;'>
                         <div notes>
@@ -185,9 +191,15 @@
                     res.push(1) ;
                 return res ;
             }
+            _computeRotation(rotation) {
+                if (rotation )
+                    return "rotated";
+                return "";
+            }
             ready() {
                 super.ready() ;
                 this.midiNoteToGUI = [] ;
+                this.___acV_displayTransposition = true ;
                 
                 this.midiNoteToGUI[58] = [10,12,13,14,15,16,8,23]; // Bb3
                 this.midiNoteToGUI[59] = [10,12,13,14,15,16,8,21]; // B3
