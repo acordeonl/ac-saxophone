@@ -196,6 +196,10 @@
                     return "rotated";
                 return "";
             }
+            ___acV_editMIDI_IN_event(e) {
+                e.channel = 0 ; 
+                return e ;
+            }
             ready() {
                 super.ready() ;
                 this.midiNoteToGUI = [] ;
